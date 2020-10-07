@@ -42,7 +42,7 @@ jobs:
           mkdir $GITHUB_WORKSPACE/fork
           cd $GITHUB_WORKSPACE/fork
           
-          gh repo fork https://github.com/operator-framework/community-operators/ 
+          gh repo fork https://github.com/operator-framework/community-operators/ --clone
           cd community-operators/community-operators/starter-kit-operator
           
           sudo snap install yq
