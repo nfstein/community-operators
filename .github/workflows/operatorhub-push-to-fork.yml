@@ -32,11 +32,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: master
+          token: ${{ secrets.GH_PAT_OPERATOR_CD }}
 
       # Runs a single command using the runners shell
       - name: Create Dir and Replace Values and Commit
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT_OPERATOR_CD }}
         run: |
           set -x
           
