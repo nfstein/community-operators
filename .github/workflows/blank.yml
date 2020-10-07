@@ -32,6 +32,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Create Dir and Replace Values and Commit
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -x
           mkdir $GITHUB_WORKSPACE/fork
