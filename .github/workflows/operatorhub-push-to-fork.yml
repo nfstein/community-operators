@@ -64,8 +64,8 @@ jobs:
           yq write --inplace $SKIT_CSV spec.replaces starter-kit-operator.v${{ github.event.inputs.old-operator-version }}
           yq write --inplace $SKIT_CSV spec.version ${{ github.event.inputs.new-operator-version }}
 
-          git config user.name nfstein
-          git config user.email nicksteinhauser@gmail.com
+          git config --global user.name nfstein
+          git config --global user.email nicksteinhauser@gmail.com
           
           git add .
           git commit -m "Update IBM Starter Kit operator to v${{ github.event.inputs.new-operator-version }}"
