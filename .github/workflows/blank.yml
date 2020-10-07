@@ -39,10 +39,11 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -x
-          mkdir $GITHUB_WORKSPACE/fork
-          cd $GITHUB_WORKSPACE/fork
           
-          gh repo fork https://github.com/operator-framework/community-operators/ --clone
+          mkdir $GITHUB_WORKSPACE/../fork
+          cd $GITHUB_WORKSPACE/..
+          
+          git clone https://github.com/operator-framework/community-operators/
           cd community-operators/community-operators/starter-kit-operator
           
           sudo snap install yq
@@ -66,9 +67,10 @@ jobs:
           git config user.email github-actions@github.com
           
           git add .
-          #git commit -m "Update IBM Starter Kit operator to v${{ github.event.inputs.new-operator-version }}"
-          #git checkout -b create-${{ github.event.inputs.new-operator-version }}
-          #git push -u origin create-${{ github.event.inputs.new-operator-version }}
+          git commit -m "Update IBM Starter Kit operator to v${{ github.event.inputs.new-operator-version }}"
+          
+          git remote add fork https://github.com/nfstein/community-operators
+          git push -u fork create-${{ github.event.inputs.new-operator-version }}
 
           echo Open a PR against the parent repo here: https://github.com/operator-framework/community-operators/pulls
 
