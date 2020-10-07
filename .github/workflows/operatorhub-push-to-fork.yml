@@ -43,8 +43,8 @@ jobs:
           mkdir $GITHUB_WORKSPACE/../fork
           cd $GITHUB_WORKSPACE/..
           
-          git clone https://github.com/operator-framework/community-operators/
-          cd community-operators/community-operators/starter-kit-operator
+          git clone https://github.com/operator-framework/community-operators/ community-operators-original
+          cd community-operators-original/community-operators/starter-kit-operator
           
           sudo snap install yq
           
