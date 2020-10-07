@@ -10,12 +10,15 @@ on:
       operator-image-tag:
         description: 'Tag of the ibmcom/starter-kit-operator image eg 0.0.0'     
         required: true
+        default: 1.1.1
       old-operator-version:
         description: 'version of operator to upgrade from must be an existing dir in community-operators/starter-kit-operator eg 0.0.0'     
         required: true
+        default: 0.2.0
       new-operator-version:
         description: 'version of operator to upgrade to eg 0.0.1'     
         required: true
+        default: 0.2.1
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
