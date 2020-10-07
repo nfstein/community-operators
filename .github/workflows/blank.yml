@@ -34,6 +34,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Create Dir and Replace Values and Commit
         run: |
+          gh
           set -x
           cd $GITHUB_WORKSPACE/community-operators/starter-kit-operator
           ls
@@ -59,9 +60,9 @@ jobs:
           git config user.email github-actions@github.com
           
           git add .
-          git commit -m "Update IBM Starter Kit operator to v${{ github.event.inputs.new-operator-version }}"
-          git checkout -b create-${{ github.event.inputs.new-operator-version }}
-          git push -u origin create-${{ github.event.inputs.new-operator-version }}
+          #git commit -m "Update IBM Starter Kit operator to v${{ github.event.inputs.new-operator-version }}"
+          #git checkout -b create-${{ github.event.inputs.new-operator-version }}
+          #git push -u origin create-${{ github.event.inputs.new-operator-version }}
 
           echo Open a PR against the parent repo here: https://github.com/operator-framework/community-operators/pulls
 
