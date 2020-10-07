@@ -29,15 +29,16 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: master
-          token: ${{ secrets.GH_PAT_OPERATOR_CD }}
 
       # Runs a single command using the runners shell
       - name: Create Dir and Replace Values and Commit
         run: |
-          gh
           set -x
-          cd $GITHUB_WORKSPACE/community-operators/starter-kit-operator
-          ls
+          mkdir $GITHUB_WORKSPACE/fork
+          cd $GITHUB_WORKSPACE/fork
+          
+          gh repo fork https://github.com/operator-framework/community-operators/ 
+          cd community-operators/community-operators/starter-kit-operator
           
           sudo snap install yq
           
