@@ -69,8 +69,10 @@ jobs:
           git add .
           git commit -m "Update IBM Starter Kit operator to v${{ github.event.inputs.new-operator-version }}"
           
+          git checkout create-${{ github.event.inputs.new-operator-version }}
+          
           git remote add fork https://github.com/nfstein/community-operators
-          git push -u fork create-${{ github.event.inputs.new-operator-version }}
+          git push --set-upstream fork create-${{ github.event.inputs.new-operator-version }}
 
           echo Open a PR against the parent repo here: https://github.com/operator-framework/community-operators/pulls
 
